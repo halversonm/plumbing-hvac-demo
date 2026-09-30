@@ -1,0 +1,71 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-ink text-[#c7d0d5] pt-16 pb-7">
+	<div class="mx-auto max-w-6xl px-6">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10 mb-10">
+			<div>
+				<a class="flex items-center gap-2.5 mb-3.5" href="/">
+					<svg class="h-10 w-10 flex-shrink-0" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="40" height="40" rx="9" fill="#C1552A" />
+						<path d="M13 26.5c0-4 3-6 3-10a4 4 0 0 1 8 0c0 4 3 6 3 10a7 7 0 0 1-14 0Z" stroke="#FAF6F0" stroke-width="2" stroke-linejoin="round"/>
+						<path d="M17 26.5a3 3 0 0 0 6 0" stroke="#FAF6F0" stroke-width="2" stroke-linecap="round"/>
+					</svg>
+					<span class="font-head font-bold text-xl text-white">Ironwood PHC</span>
+				</a>
+				<p class="text-[#9aa6ac] text-sm max-w-[32ch]">
+					A family-owned plumbing, heating &amp; cooling company serving Maple Grove
+					and nearby communities since 1998. Honest work, real people.
+				</p>
+			</div>
+
+			<div>
+				<h4 class="text-white text-base font-semibold mb-4">Company</h4>
+				<ul class="space-y-2.5">
+					<li><a href="/about" class="text-sm hover:text-primary transition-colors">About Us</a></li>
+					<li><a href="/services" class="text-sm hover:text-primary transition-colors">Services</a></li>
+					<li><a href="/contact" class="text-sm hover:text-primary transition-colors">Contact</a></li>
+					<li><a href="/contact" class="text-sm hover:text-primary transition-colors">Careers</a></li>
+				</ul>
+			</div>
+
+			<div>
+				<h4 class="text-white text-base font-semibold mb-4">Services</h4>
+				<ul class="space-y-2.5">
+					<li><a href="/services#plumbing" class="text-sm hover:text-primary transition-colors">Plumbing Repair</a></li>
+					<li><a href="/services#heating" class="text-sm hover:text-primary transition-colors">Heating</a></li>
+					<li><a href="/services#cooling" class="text-sm hover:text-primary transition-colors">Cooling</a></li>
+					<li><a href="/services#water-heaters" class="text-sm hover:text-primary transition-colors">Water Heaters</a></li>
+				</ul>
+			</div>
+
+			<div>
+				<h4 class="text-white text-base font-semibold mb-4">Get In Touch</h4>
+				<ul class="space-y-2.5">
+					<li class="flex gap-2.5 items-start text-sm">
+						<svg class="h-[17px] w-[17px] text-[#f2a56f] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+						<a href="tel:+15552147890">(555) 214-7890</a>
+					</li>
+					<li class="flex gap-2.5 items-start text-sm">
+						<svg class="h-[17px] w-[17px] text-[#f2a56f] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
+						<a href="mailto:info@ironwoodphc.com">info@ironwoodphc.com</a>
+					</li>
+					<li class="flex gap-2.5 items-start text-sm">
+						<svg class="h-[17px] w-[17px] text-[#f2a56f] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+						<span>412 Kettle St, Maple Grove</span>
+					</li>
+					<li class="flex gap-2.5 items-start text-sm">
+						<svg class="h-[17px] w-[17px] text-[#f2a56f] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+						<span>Mon&ndash;Fri 7a&ndash;6p &middot; 24/7 Emergency</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="border-t border-white/10 pt-5 flex justify-between flex-wrap gap-2.5 text-xs text-[#8b969c]">
+			<span>&copy; {year} Ironwood Plumbing, Heating &amp; Cooling. All rights reserved.</span>
+			<span>License #PHC-04471 &middot; Licensed &amp; Insured</span>
+		</div>
+	</div>
+</footer>

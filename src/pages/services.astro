@@ -1,0 +1,197 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import heroImage from "../assets/images/services-hero-valve.jpg";
+
+const faqs = [
+	{
+		q: "Do you charge for estimates?",
+		a: "Estimates are free for standard installs and replacements. If we need to diagnose an active problem, we charge a flat diagnostic fee that's applied toward the repair if you move forward.",
+	},
+	{
+		q: "Are you really available after hours?",
+		a: "Yes — our emergency line is answered 24/7, every day of the year, including holidays. Burst pipes and dead furnaces don't wait for business hours, so neither do we.",
+	},
+	{
+		q: "What areas do you service?",
+		a: "We serve Maple Grove and surrounding communities within about 25 miles, including Fairview, Brookhaven, Elm City, Cedar Hollow, and Northgate. Call us if you're not sure you're in range.",
+	},
+	{
+		q: "Do you offer any warranties on repairs?",
+		a: "All of our labor is backed by a workmanship guarantee, and most parts carry a manufacturer's warranty on top of that. We'll walk you through exactly what's covered before we start.",
+	},
+];
+
+const services = [
+	{
+		id: "plumbing",
+		title: "Plumbing Repair",
+		icon: "M13 26.5c0-4 3-6 3-10a4 4 0 0 1 8 0c0 4 3 6 3 10a7 7 0 0 1-14 0Z M17 26.5a3 3 0 0 0 6 0",
+		desc: "From a dripping faucet to a pipe that's given up entirely, we handle the everyday plumbing problems that make you want to pull your hair out.",
+		items: [
+			"Leaky faucets, fixtures & shut-off valves",
+			"Pipe repair, repiping & leak detection",
+			"Toilet repair & replacement",
+			"Garbage disposal install & repair",
+			"Sump pumps & sewage ejector systems",
+		],
+	},
+	{
+		id: "drains",
+		title: "Drain Cleaning",
+		icon: "M4 6h16M4 12h16M4 18h10 M7 6v12a2 2 0 0 0 2 2h2",
+		desc: "Slow drains and sewer backups don't fix themselves. We clear the clog and, when it matters, show you exactly what caused it.",
+		items: [
+			"Kitchen & bathroom drain clearing",
+			"Main sewer line cleaning",
+			"Video camera line inspection",
+			"Hydro jetting for stubborn clogs",
+			"Root intrusion removal",
+		],
+	},
+	{
+		id: "water-heaters",
+		title: "Water Heaters",
+		icon: "M12 3c2 3-2 4-2 7a2 2 0 1 0 4 0c0-3-4-4-2-7Z M6 21h12",
+		desc: "Cold showers aren't a personality trait. We repair, replace, and install traditional and tankless water heaters of every major brand.",
+		items: [
+			"Same-day repair for most units",
+			"Tank & tankless installation",
+			"Routine flushing & maintenance",
+			"Sizing help if you're upgrading",
+			"Warranty-backed installs",
+		],
+	},
+	{
+		id: "heating",
+		title: "Heating",
+		icon: "M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8",
+		desc: "Furnaces don't pick a convenient time to quit. We keep them running, and we're honest when a repair no longer makes sense.",
+		items: [
+			"Furnace repair & diagnostics",
+			"Seasonal tune-ups & filter service",
+			"Full furnace replacement & install",
+			"Thermostat upgrades",
+			"Heat pump service",
+		],
+	},
+	{
+		id: "cooling",
+		title: "Cooling",
+		icon: "M12 2v20M4.2 6.5l15.6 11M19.8 6.5L4.2 17.5",
+		desc: "A properly maintained AC costs less to run and lasts longer. We keep yours efficient through the hottest Maple Grove summers.",
+		items: [
+			"AC repair & refrigerant service",
+			"Seasonal tune-ups",
+			"New system sizing & installation",
+			"Ductless mini-split install",
+			"Airflow & efficiency checks",
+		],
+	},
+	{
+		id: "emergency",
+		title: "Emergency Service",
+		icon: "M13 2 3 14h7l-1 8 10-12h-7l1-8Z",
+		desc: "Burst pipes and dead furnaces don't wait for business hours, and neither do we. Call any time, day or night.",
+		items: [
+			"24/7 phone dispatch, every day of the year",
+			"Burst pipe & active leak response",
+			"No-heat & no-AC emergency calls",
+			"Sewer backups & flooding",
+			"Upfront pricing even after hours",
+		],
+	},
+];
+---
+
+<Layout title="Services" current="/services" description="Plumbing, drain cleaning, water heater, heating, and cooling services from Ironwood PHC in Maple Grove.">
+	<section class="relative overflow-hidden bg-ink text-white text-center py-16">
+		<Image
+			src={heroImage}
+			alt=""
+			widths={[640, 1024, 1600, 2400]}
+			sizes="100vw"
+			format="webp"
+			quality={78}
+			loading="eager"
+			fetchpriority="high"
+			class="absolute inset-0 h-full w-full object-cover"
+		/>
+		<div
+			class="pointer-events-none absolute inset-0"
+			style="background: linear-gradient(115deg, rgba(15,20,25,0.7) 0%, rgba(23,30,38,0.58) 42%, rgba(23,30,38,0.42) 100%);"
+		></div>
+		<div class="relative mx-auto max-w-3xl px-6">
+			<span class="block text-sm font-bold uppercase tracking-wide text-[#f2a56f] mb-3">What We Do</span>
+			<h1 class="text-white uppercase text-3xl md:text-4xl mb-3">Services built around your whole house</h1>
+			<p class="text-[#cfd8dd] mx-auto">Plumbing, heating, and cooling — one local crew, one number to call, no bouncing between companies.</p>
+		</div>
+	</section>
+
+	<section class="py-6 md:py-10">
+		<div class="mx-auto max-w-6xl px-6">
+			{services.map((service, i) => (
+				<div id={service.id} class={`grid grid-cols-1 md:grid-cols-[0.55fr_1fr] gap-10 py-11 items-start ${i !== services.length - 1 ? "border-b border-border" : ""}`}>
+					<div class="inline-flex items-center gap-3 font-bold text-primary">
+						<div class="h-10 w-10 rounded-[10px] bg-[#fbe9dd] text-primary flex items-center justify-center flex-shrink-0">
+							<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d={service.icon}></path>
+							</svg>
+						</div>
+						<span class="text-lg">{service.title}</span>
+					</div>
+					<div>
+						<p class="text-ink-soft text-[0.97rem] mb-1">{service.desc}</p>
+						<ul class="mt-3.5 space-y-1.5">
+							{service.items.map((item) => (
+								<li class="flex gap-2.5 text-ink-soft text-[0.95rem]">
+									<svg class="h-[18px] w-[18px] text-secondary flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+									{item}
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<section class="bg-bg-alt py-16 md:py-20">
+		<div class="mx-auto max-w-3xl px-6">
+			<div class="max-w-[640px] mb-10">
+				<span class="block text-sm font-bold uppercase tracking-wide text-primary mb-3">Common Questions</span>
+				<h2 class="uppercase text-3xl">Frequently asked questions</h2>
+			</div>
+			<div class="divide-y divide-border rounded-2xl border border-border bg-white">
+				{faqs.map((faq) => (
+					<details class="group p-6">
+						<summary class="flex items-center justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden font-bold text-ink">
+							{faq.q}
+							<svg class="h-5 w-5 flex-shrink-0 text-primary transition-transform group-open:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+						</summary>
+						<p class="text-ink-soft text-[0.95rem] mt-3">{faq.a}</p>
+					</details>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-bg-alt py-16">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="rounded-2xl bg-primary text-white p-8 md:p-12 flex items-center justify-between gap-6 flex-wrap">
+				<div>
+					<h2 class="text-white uppercase text-2xl mb-2">Not sure what you need?</h2>
+					<p class="text-[#fbe3d3]">Tell us what's going on and we'll point you the right direction — no charge for the conversation.</p>
+				</div>
+				<div class="flex gap-3.5 flex-wrap">
+					<a href="tel:+15552147890" class="inline-flex items-center justify-center gap-2 rounded-md bg-white text-primary px-6 py-3.5 text-sm font-bold uppercase tracking-wide hover:-translate-y-0.5 transition">
+						Call (555) 214-7890
+					</a>
+					<a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white/70 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-white hover:text-primary transition">
+						Send a Message
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

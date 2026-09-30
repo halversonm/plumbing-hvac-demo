@@ -1,17 +1,312 @@
 ---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import heroImage from "../assets/images/hero-plumber.jpg";
+import whyUsImage from "../assets/images/why-us-sink-repair.jpg";
+import happyFamilyImage from "../assets/images/testimonials-happy-family.jpg";
 
+const services = [
+	{
+		id: "plumbing",
+		title: "Plumbing Repair",
+		desc: "Leaky faucets, running toilets, burst pipes, and everything in between — fixed right the first time.",
+		icon: "M13 26.5c0-4 3-6 3-10a4 4 0 0 1 8 0c0 4 3 6 3 10a7 7 0 0 1-14 0Z M17 26.5a3 3 0 0 0 6 0",
+	},
+	{
+		id: "drains",
+		title: "Drain Cleaning",
+		desc: "Slow or clogged drains and sewer line backups cleared fast, with cameras when we need a closer look.",
+		icon: "M4 6h16M4 12h16M4 18h10 M7 6v12a2 2 0 0 0 2 2h2",
+	},
+	{
+		id: "water-heaters",
+		title: "Water Heaters",
+		desc: "Repairs, replacements, and tankless installs from a crew that will actually explain your options.",
+		icon: "M12 3c2 3-2 4-2 7a2 2 0 1 0 4 0c0-3-4-4-2-7Z M6 21h12",
+	},
+	{
+		id: "heating",
+		title: "Heating",
+		desc: "Furnace repair, tune-ups, and installs to keep your home warm through the coldest Maple Grove winters.",
+		icon: "M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8",
+	},
+	{
+		id: "cooling",
+		title: "Cooling",
+		desc: "AC repairs, seasonal tune-ups, and new system installs so summer stays comfortable, not stressful.",
+		icon: "M12 2v20M4.2 6.5l15.6 11M19.8 6.5L4.2 17.5",
+	},
+	{
+		id: "emergency",
+		title: "Emergency Service",
+		desc: "Burst pipe at midnight? No heat on a Sunday? We answer the phone 24/7, every day of the year.",
+		icon: "M13 2 3 14h7l-1 8 10-12h-7l1-8Z",
+	},
+];
+
+const whyUs = [
+	{
+		title: "Family owned & operated",
+		desc: "Not a franchise, not a call center — just a local crew that's been at this since 1998.",
+	},
+	{
+		title: "Upfront, flat-rate pricing",
+		desc: "You get a real number before we start, so there are no surprises when the bill comes.",
+	},
+	{
+		title: "Fast local response",
+		desc: "We live in Maple Grove too. Most calls get a same-day appointment, no runaround.",
+	},
+	{
+		title: "Licensed, insured & background-checked",
+		desc: "Every technician who walks into your home is someone we'd trust in our own.",
+	},
+];
+
+const testimonials = [
+	{
+		quote: "They came out within the hour when our water heater died. Fair price, no upsell nonsense — just fixed it.",
+		name: "Jamie R.",
+		loc: "Maple Grove",
+	},
+	{
+		quote: "Been using Ironwood for years. They treat you like a neighbor, not a number, and it shows.",
+		name: "Carlos M.",
+		loc: "Fairview",
+	},
+	{
+		quote: "Our AC went out during a heat wave and they had us back up and running the same day. Lifesavers.",
+		name: "Priya S.",
+		loc: "Brookhaven",
+	},
+];
+
+const areas = ["Maple Grove", "Fairview", "Brookhaven", "Elm City", "Cedar Hollow", "Northgate"];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home" current="/">
+	<!-- Hero -->
+	<section class="relative overflow-hidden bg-ink py-20 md:py-24">
+		<Image
+			src={heroImage}
+			alt=""
+			widths={[640, 1024, 1600, 2400]}
+			sizes="100vw"
+			format="webp"
+			quality={78}
+			loading="eager"
+			fetchpriority="high"
+			class="absolute inset-0 h-full w-full object-cover"
+		/>
+		<div
+			class="pointer-events-none absolute inset-0"
+			style="background: linear-gradient(115deg, rgba(15,20,25,0.72) 0%, rgba(23,30,38,0.6) 42%, rgba(23,30,38,0.4) 100%), radial-gradient(circle at 82% 22%, rgba(193,85,42,0.3), transparent 45%);"
+		></div>
+		<div class="relative mx-auto max-w-6xl px-6 grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+			<div>
+				<span class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-sm font-semibold text-[#f4d9c8] mb-5">
+					24/7 Emergency Service Available
+				</span>
+				<h1 class="border-l-4 border-primary pl-4 text-white uppercase text-3xl md:text-5xl mb-5">
+					Your Neighbors in <em class="not-italic text-[#f2a56f]">Plumbing, Heating &amp; Cooling</em>
+				</h1>
+				<p class="text-[#cfd8dd] text-lg max-w-[46ch] mb-7">
+					Family-owned and operated in Maple Grove since 1998. Honest pricing, real people, and repairs done right the first time.
+				</p>
+				<div class="flex flex-wrap gap-3.5 mb-8">
+					<a href="tel:+15552147890" class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/30 transition">
+						Call (555) 214-7890
+					</a>
+					<a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white/60 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-white hover:text-ink transition">
+						Request a Free Quote
+					</a>
+				</div>
+				<div class="flex flex-wrap gap-5">
+					{["Licensed & Insured", "24/7 Emergency Service", "Family Owned Since 1998"].map((badge) => (
+						<div class="flex items-center gap-2 text-sm font-semibold text-[#dbe3e7]">
+							<svg class="h-[18px] w-[18px] text-[#f2a56f] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+							{badge}
+						</div>
+					))}
+				</div>
+			</div>
+
+			<div class="order-first md:order-last rounded-2xl border border-white/15 bg-white/[0.06] p-8 backdrop-blur">
+				<h3 class="text-white text-xl mb-1.5">Straight talk, straight away</h3>
+				<p class="text-[#cfd8dd] text-sm">
+					Call us and talk to an actual plumber, not a script. We'll tell you what's wrong, what it costs, and how soon we can get there.
+				</p>
+				<div class="grid grid-cols-2 gap-5 mt-6">
+					<div>
+						<strong class="block font-head text-3xl text-[#f2a56f]">27</strong>
+						<span class="text-sm text-[#cfd8dd]">Years in Maple Grove</span>
+					</div>
+					<div>
+						<strong class="block font-head text-3xl text-[#f2a56f]">4.9&#9733;</strong>
+						<span class="text-sm text-[#cfd8dd]">Average customer rating</span>
+					</div>
+					<div>
+						<strong class="block font-head text-3xl text-[#f2a56f]">24/7</strong>
+						<span class="text-sm text-[#cfd8dd]">Emergency dispatch</span>
+					</div>
+					<div>
+						<strong class="block font-head text-3xl text-[#f2a56f]">100%</strong>
+						<span class="text-sm text-[#cfd8dd]">Flat-rate, no surprises</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Trust badges -->
+	<section class="bg-white py-10 border-b border-border">
+		<div class="mx-auto max-w-6xl px-6 grid grid-cols-2 sm:grid-cols-4 gap-6">
+			{[
+				{ label: "5-Star Rated", icon: "M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8-5.1-4.7 6.9-.8Z" },
+				{ label: "Satisfaction Guaranteed", icon: "M22 11.08V12a10 10 0 1 1-5.93-9.14 M22 4 12 14.01 9 11.01" },
+				{ label: "Family Owned", icon: "M3 21h18 M6 21V10l6-6 6 6v11 M10 21v-6h4v6" },
+				{ label: "Friendly Technicians", icon: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75" },
+			].map((item) => (
+				<div class="flex flex-col items-center text-center gap-2.5">
+					<div class="h-14 w-14 rounded-full bg-bg-alt text-primary flex items-center justify-center">
+						<svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d={item.icon}></path>
+						</svg>
+					</div>
+					<span class="text-sm font-bold uppercase tracking-wide text-ink">{item.label}</span>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- Services -->
+	<section class="py-16 md:py-20">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="max-w-[640px] mx-auto text-center mb-10">
+				<span class="block text-sm font-bold uppercase tracking-wider text-primary mb-3">What We Do</span>
+				<h2 class="text-3xl font-bold mb-3">Full-service plumbing, heating &amp; cooling</h2>
+				<p class="text-ink-soft text-lg">One local crew for every system in your home — no need to juggle three different companies.</p>
+			</div>
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				{services.map((service) => (
+					<div id={service.id} class="rounded-[10px] border border-border bg-white p-7 hover:shadow-lg hover:shadow-ink/5 hover:-translate-y-1 transition">
+						<div class="h-12 w-12 rounded-[10px] bg-[#fbe9dd] text-primary flex items-center justify-center mb-4.5">
+							<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d={service.icon}></path>
+							</svg>
+						</div>
+						<h3 class="text-lg font-semibold mb-2">{service.title}</h3>
+						<p class="text-ink-soft text-sm mb-3.5">{service.desc}</p>
+						<a href="/services" class="font-bold text-sm text-primary no-underline">Learn more &rarr;</a>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Why us -->
+	<section class="bg-bg-alt py-16 md:py-20">
+		<div class="mx-auto max-w-6xl px-6 grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-14 items-center">
+			<div class="rounded-2xl relative overflow-hidden aspect-[4/3.2] flex items-end p-6">
+				<Image
+					src={whyUsImage}
+					alt="Ironwood technician repairing pipes under a sink"
+					widths={[400, 800, 1200]}
+					sizes="(min-width: 768px) 50vw, 100vw"
+					format="webp"
+					quality={78}
+					loading="lazy"
+					class="absolute inset-0 h-full w-full object-cover"
+				/>
+				<div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 55%, rgba(15,20,25,0.75) 100%);"></div>
+				<span class="relative bg-white/95 text-ink font-bold text-sm px-4 py-2.5 rounded-lg">On the job in Maple Grove, every day since 1998</span>
+			</div>
+
+			<div>
+				<span class="block text-sm font-bold uppercase tracking-wider text-primary mb-3">Why Maple Grove Trusts Us</span>
+				<h2 class="text-3xl font-bold mb-4">We show up, we're straight with you, and we stand behind the work</h2>
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-7 mt-8">
+					{whyUs.map((item) => (
+						<div class="flex gap-4">
+							<div class="h-[42px] w-[42px] rounded-[10px] bg-secondary-light text-secondary flex items-center justify-center flex-shrink-0">
+								<svg class="h-[22px] w-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+							</div>
+							<div>
+								<h4 class="font-semibold mb-1">{item.title}</h4>
+								<p class="text-ink-soft text-sm">{item.desc}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonials -->
+	<section class="py-16 md:py-20">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="max-w-[640px] mx-auto text-center mb-10">
+				<span class="block text-sm font-bold uppercase tracking-wider text-primary mb-3">Kind Words</span>
+				<h2 class="text-3xl font-bold">What our neighbors are saying</h2>
+			</div>
+			<div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
+				<div class="rounded-2xl relative overflow-hidden aspect-[4/3]">
+					<Image
+						src={happyFamilyImage}
+						alt="Happy homeowners settling into their kitchen in Maple Grove"
+						widths={[400, 800, 1200]}
+						sizes="(min-width: 1024px) 45vw, 100vw"
+						format="webp"
+						quality={78}
+						loading="lazy"
+						class="absolute inset-0 h-full w-full object-cover object-[62%_45%]"
+					/>
+					<div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 55%, rgba(15,20,25,0.75) 100%);"></div>
+					<span class="absolute bottom-6 left-6 right-6 bg-white/95 text-ink font-bold text-sm px-4 py-2.5 rounded-lg">Another happy household, settled in and squared away</span>
+				</div>
+				<div class="flex flex-col gap-5">
+					{testimonials.map((t) => (
+						<div class="rounded-[10px] border border-border bg-white p-7">
+							<div class="text-star tracking-[2px] mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+							<p class="text-ink-soft text-[0.96rem] mb-4">&ldquo;{t.quote}&rdquo;</p>
+							<p class="font-bold text-sm">{t.name}</p>
+							<p class="text-ink-soft text-[0.85rem]">{t.loc}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Service area + CTA -->
+	<section class="bg-bg-alt py-16 md:py-20">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="max-w-[640px] mb-10">
+				<span class="block text-sm font-bold uppercase tracking-wider text-primary mb-3">Where We Work</span>
+				<h2 class="text-3xl font-bold mb-3">Proudly serving Maple Grove &amp; nearby communities</h2>
+				<p class="text-ink-soft text-lg">Within about 25 miles of downtown Maple Grove. Not sure if you're in range? Just call — we'll tell you straight.</p>
+				<div class="flex flex-wrap gap-3 mt-5">
+					{areas.map((area) => (
+						<span class="rounded-full border border-border bg-white px-4 py-2 text-sm font-semibold">{area}</span>
+					))}
+				</div>
+			</div>
+
+			<div class="rounded-2xl bg-primary text-white p-8 md:p-12 flex items-center justify-between gap-6 flex-wrap">
+				<div>
+					<h2 class="text-white uppercase text-2xl mb-2">Something leaking, broken, or blowing warm air?</h2>
+					<p class="text-[#fbe3d3]">Call now and talk to a real technician — most calls get a same-day appointment.</p>
+				</div>
+				<div class="flex gap-3.5 flex-wrap">
+					<a href="tel:+15552147890" class="inline-flex items-center justify-center gap-2 rounded-md bg-white text-primary px-6 py-3.5 text-sm font-bold uppercase tracking-wide hover:-translate-y-0.5 transition">
+						Call (555) 214-7890
+					</a>
+					<a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white/70 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-white hover:text-primary transition">
+						Get a Free Quote
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

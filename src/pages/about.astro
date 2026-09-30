@@ -1,0 +1,139 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import storyImage from "../assets/images/about-water-heater.jpg";
+
+const values = [
+	{
+		title: "Honesty first",
+		desc: "We tell you what's actually wrong, what it costs, and when a repair isn't worth it.",
+		icon: "M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7l-9-5Z M9 12l2 2 4-4",
+	},
+	{
+		title: "Local roots",
+		desc: "Every truck, every technician, every dollar we make stays right here in Maple Grove.",
+		icon: "M3 21h18 M6 21V10l6-6 6 6v11 M10 21v-6h4v6",
+	},
+	{
+		title: "Real craftsmanship",
+		desc: "We'd rather do a job right and take an extra hour than do it fast and see you again next month.",
+		icon: "M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.77z",
+	},
+	{
+		title: "Show up on time",
+		desc: "We give you a real window, call when we're on the way, and respect that your day matters too.",
+		icon: "M12 2v20M4.2 6.5l15.6 11",
+	},
+];
+
+const timeline = [
+	{ year: "1998", text: "Walt Ironwood starts the company with one truck and a pager, taking calls from Maple Grove neighbors." },
+	{ year: "2006", text: "Adds heating & cooling services after one too many customers asked for help with a dying furnace." },
+	{ year: "2014", text: "Grows to a six-person crew and moves into a proper shop on Kettle Street." },
+	{ year: "2021", text: "Launches 24/7 emergency dispatch so no one's stuck with a burst pipe until Monday." },
+	{ year: "Today", text: "Still family-run, still local, still answering the phone ourselves." },
+];
+---
+
+<Layout title="About" current="/about" description="The story behind Ironwood Plumbing, Heating & Cooling — family-owned in Maple Grove since 1998.">
+	<section class="bg-ink text-white text-center py-16">
+		<div class="mx-auto max-w-3xl px-6">
+			<span class="block text-sm font-bold uppercase tracking-wide text-[#f2a56f] mb-3">Our Story</span>
+			<h1 class="text-white uppercase text-3xl md:text-4xl mb-3">Started with one truck. Still local, still family-run.</h1>
+			<p class="text-[#cfd8dd] mx-auto">Twenty-seven years of fixing what's broken and being straight with the people who live here.</p>
+		</div>
+	</section>
+
+	<section class="py-16 md:py-20">
+		<div class="mx-auto max-w-6xl px-6 grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-14 items-center">
+			<div class="rounded-2xl relative overflow-hidden aspect-[4/3.2] flex items-end p-6">
+				<Image
+					src={storyImage}
+					alt="Ironwood technician repairing a water heater"
+					widths={[400, 800, 1200]}
+					sizes="(min-width: 768px) 50vw, 100vw"
+					format="webp"
+					quality={78}
+					loading="lazy"
+					class="absolute inset-0 h-full w-full object-cover"
+				/>
+				<div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 55%, rgba(15,20,25,0.75) 100%);"></div>
+				<span class="relative bg-white/95 text-ink font-bold text-sm px-4 py-2.5 rounded-lg">Still hands-on after almost thirty years</span>
+			</div>
+
+			<div>
+				<span class="block text-sm font-bold uppercase tracking-wider text-primary mb-3">How We Got Here</span>
+				<h2 class="text-3xl font-bold mb-4">A pager, a pickup truck, and a promise to be straight with people</h2>
+				<p class="text-ink-soft mb-4">
+					Walt Ironwood learned plumbing from his uncle and started the company in 1998 after one too many
+					customers told him they wished someone would just tell them the truth about their pipes. He bought
+					a used truck, printed some business cards at the copy shop, and started taking calls around Maple Grove.
+				</p>
+				<p class="text-ink-soft mb-0">
+					Almost thirty years later, we're still family-owned, we still answer our own phones, and Walt still
+					shows up to the occasional job himself. The crew has grown, but the promise hasn't changed: honest
+					work, fair pricing, and treating your home like it's ours.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-bg-alt py-16 md:py-20">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="max-w-[640px] mx-auto text-center mb-10">
+				<span class="block text-sm font-bold uppercase tracking-wider text-primary mb-3">What We Stand For</span>
+				<h2 class="text-3xl font-bold">The values that haven't changed since 1998</h2>
+			</div>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+				{values.map((v) => (
+					<div class="text-center p-2.5">
+						<div class="h-12 w-12 rounded-[10px] bg-[#fbe9dd] text-primary flex items-center justify-center mx-auto mb-3.5">
+							<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d={v.icon}></path>
+							</svg>
+						</div>
+						<h4 class="text-base font-semibold mb-1.5">{v.title}</h4>
+						<p class="text-sm text-ink-soft">{v.desc}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 md:py-20">
+		<div class="mx-auto max-w-4xl px-6">
+			<div class="max-w-[640px] mb-12">
+				<span class="block text-sm font-bold uppercase tracking-wider text-primary mb-3">Our Timeline</span>
+				<h2 class="text-3xl font-bold">Almost three decades in Maple Grove</h2>
+			</div>
+			<div class="border-l-[3px] border-border pl-7 flex flex-col gap-7">
+				{timeline.map((t) => (
+					<div class="relative">
+						<span class="absolute -left-[34px] top-1 h-3 w-3 rounded-full bg-primary ring-2 ring-border" style="box-shadow: 0 0 0 4px #faf6f0;"></span>
+						<p class="font-head text-primary font-bold text-lg mb-1">{t.year}</p>
+						<p class="text-ink-soft m-0">{t.text}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-bg-alt py-16">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="rounded-2xl bg-primary text-white p-8 md:p-12 flex items-center justify-between gap-6 flex-wrap">
+				<div>
+					<h2 class="text-white uppercase text-2xl mb-2">Want to work with people who actually answer the phone?</h2>
+					<p class="text-[#fbe3d3]">Give us a call or send a message — we'll get back to you same day.</p>
+				</div>
+				<div class="flex gap-3.5 flex-wrap">
+					<a href="tel:+15552147890" class="inline-flex items-center justify-center gap-2 rounded-md bg-white text-primary px-6 py-3.5 text-sm font-bold uppercase tracking-wide hover:-translate-y-0.5 transition">
+						Call (555) 214-7890
+					</a>
+					<a href="/contact" class="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white/70 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-white hover:text-primary transition">
+						Get a Free Quote
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

@@ -1,0 +1,45 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+	current?: string;
+}
+
+const {
+	title,
+	description = "Family-owned plumbing, heating & cooling serving Maple Grove and nearby towns since 1998.",
+	current = "",
+} = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Ironwood Plumbing, Heating & Cooling</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="bg-bg text-ink font-body antialiased">
+		<div class="bg-amber-300 text-ink text-center text-xs sm:text-sm font-semibold px-4 py-2">
+			Demo site — Ironwood Plumbing, Heating &amp; Cooling is a fictional company created for demonstration purposes only.
+		</div>
+		<Header current={current} />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

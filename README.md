@@ -1,43 +1,69 @@
-# Astro Starter Kit: Minimal
+# Ironwood Plumbing, Heating & Cooling
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A marketing website for **Ironwood Plumbing, Heating & Cooling** — a fictional, family-owned
+home services company in the fictional town of Maple Grove. This is a demo/portfolio project
+only; Ironwood is not a real business.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Built with [Astro](https://astro.build) and [Tailwind CSS v4](https://tailwindcss.com).
 
 ## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
 ├── public/
+│   └── favicon.svg
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── assets/
+│   │   └── images/          # Source photos, optimized at build time via astro:assets
+│   ├── components/
+│   │   ├── Header.astro      # Sticky nav, Google-reviews strip, mobile menu
+│   │   └── Footer.astro
+│   ├── layouts/
+│   │   └── Layout.astro      # Shared <head>, demo banner, header/footer wrapper
+│   ├── pages/
+│   │   ├── index.astro       # Home
+│   │   ├── services.astro    # Services + FAQ accordion
+│   │   ├── about.astro       # Company story/timeline
+│   │   └── contact.astro     # Contact form + info
+│   └── styles/
+│       └── global.css        # Tailwind import + design tokens (@theme)
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Each `.astro` file in `src/pages/` is exposed as a route based on its file name.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🎨 Design
 
-Any static assets, like images, can be placed in the `public/` directory.
+- **Colors, fonts, and spacing** are defined as design tokens in `src/styles/global.css` via
+  Tailwind's `@theme` block (e.g. `--color-primary`, `--font-head`). Update tokens there to
+  restyle the whole site at once.
+- **Images** live in `src/assets/images/` and are rendered with Astro's `<Image>` component
+  (`astro:assets`), which generates responsive, modern-format (WebP) variants automatically.
+  Hero images are eager-loaded with `fetchpriority="high"`; everything else is lazy-loaded.
+- Photos are free-license stock photos from [Unsplash](https://unsplash.com).
 
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command              | Action                                           |
+| :-------------------- | :----------------------------------------------- |
+| `npm install`          | Installs dependencies                            |
+| `npm run dev`          | Starts local dev server at `localhost:4321`      |
+| `npm run build`        | Build the production site to `./dist/`           |
+| `npm run preview`      | Preview the build locally, before deploying      |
+| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
+
+This project's dev server can also be run in the background:
+
+| Command              | Action                          |
+| :-------------------- | :------------------------------- |
+| `astro dev --background` | Start the dev server in the background |
+| `astro dev stop`         | Stop the background dev server         |
+| `astro dev status`       | Check whether it's running             |
+| `astro dev logs`         | View dev server logs                   |
 
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Check out the [Astro docs](https://docs.astro.build) or the
+[Tailwind CSS docs](https://tailwindcss.com/docs).

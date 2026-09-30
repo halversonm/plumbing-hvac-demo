@@ -1,0 +1,125 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const areas = ["Maple Grove", "Fairview", "Brookhaven", "Elm City", "Cedar Hollow", "Northgate"];
+---
+
+<Layout title="Contact" current="/contact" description="Contact Ironwood Plumbing, Heating & Cooling in Maple Grove — call, email, or send a request online.">
+	<section class="bg-ink text-white text-center py-16">
+		<div class="mx-auto max-w-3xl px-6">
+			<span class="block text-sm font-bold uppercase tracking-wide text-[#f2a56f] mb-3">Get In Touch</span>
+			<h1 class="text-white uppercase text-3xl md:text-4xl mb-3">Let's fix what's broken</h1>
+			<p class="text-[#cfd8dd] mx-auto">Call us directly, or send a message and we'll get back to you the same day.</p>
+		</div>
+	</section>
+
+	<section class="py-16 md:py-20">
+		<div class="mx-auto max-w-6xl px-6 grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-12">
+			<div>
+				<h2 class="text-2xl font-bold mb-5">Reach us directly</h2>
+				<ul class="space-y-4 mb-9">
+					<li class="flex gap-3.5">
+						<div class="h-11 w-11 rounded-[10px] bg-secondary-light text-secondary flex items-center justify-center flex-shrink-0">
+							<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+						</div>
+						<div>
+							<p class="font-semibold mb-0.5">Call or text</p>
+							<a href="tel:+15552147890" class="text-ink-soft text-sm">(555) 214-7890</a>
+						</div>
+					</li>
+					<li class="flex gap-3.5">
+						<div class="h-11 w-11 rounded-[10px] bg-secondary-light text-secondary flex items-center justify-center flex-shrink-0">
+							<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
+						</div>
+						<div>
+							<p class="font-semibold mb-0.5">Email</p>
+							<a href="mailto:info@ironwoodphc.com" class="text-ink-soft text-sm">info@ironwoodphc.com</a>
+						</div>
+					</li>
+					<li class="flex gap-3.5">
+						<div class="h-11 w-11 rounded-[10px] bg-secondary-light text-secondary flex items-center justify-center flex-shrink-0">
+							<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+						</div>
+						<div>
+							<p class="font-semibold mb-0.5">Shop address</p>
+							<p class="text-ink-soft text-sm m-0">412 Kettle St, Maple Grove</p>
+						</div>
+					</li>
+					<li class="flex gap-3.5">
+						<div class="h-11 w-11 rounded-[10px] bg-secondary-light text-secondary flex items-center justify-center flex-shrink-0">
+							<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+						</div>
+						<div>
+							<p class="font-semibold mb-0.5">Hours</p>
+							<p class="text-ink-soft text-sm m-0">Mon&ndash;Fri 7am&ndash;6pm &middot; 24/7 Emergency Line</p>
+						</div>
+					</li>
+				</ul>
+
+				<h3 class="text-lg font-semibold mb-3">Service area</h3>
+				<div class="flex flex-wrap gap-2.5">
+					{areas.map((area) => (
+						<span class="rounded-full border border-border bg-white px-4 py-2 text-sm font-semibold">{area}</span>
+					))}
+				</div>
+			</div>
+
+			<div class="rounded-2xl border border-border bg-white p-7 md:p-9">
+				<div id="form-success" class="hidden bg-[#e7f3ea] border border-[#bfe0c8] text-[#1f5c33] px-4.5 py-4 rounded-lg font-semibold mb-5">
+					Thanks! Your message has been sent — we'll be in touch shortly.
+				</div>
+
+				<form id="contact-form" class="grid grid-cols-1 sm:grid-cols-2 gap-x-4.5 gap-y-0">
+					<div class="flex flex-col gap-1.5 mb-4.5">
+						<label for="name" class="text-sm font-bold">Full name</label>
+						<input id="name" name="name" type="text" required class="font-body text-[0.96rem] px-3.5 py-3 rounded-lg border border-border bg-white focus:outline-2 focus:outline-secondary" />
+					</div>
+					<div class="flex flex-col gap-1.5 mb-4.5">
+						<label for="phone" class="text-sm font-bold">Phone number</label>
+						<input id="phone" name="phone" type="tel" required class="font-body text-[0.96rem] px-3.5 py-3 rounded-lg border border-border bg-white focus:outline-2 focus:outline-secondary" />
+					</div>
+					<div class="sm:col-span-2 flex flex-col gap-1.5 mb-4.5">
+						<label for="email" class="text-sm font-bold">Email address</label>
+						<input id="email" name="email" type="email" required class="font-body text-[0.96rem] px-3.5 py-3 rounded-lg border border-border bg-white focus:outline-2 focus:outline-secondary" />
+					</div>
+					<div class="sm:col-span-2 flex flex-col gap-1.5 mb-4.5">
+						<label for="service" class="text-sm font-bold">What do you need help with?</label>
+						<select id="service" name="service" class="font-body text-[0.96rem] px-3.5 py-3 rounded-lg border border-border bg-white focus:outline-2 focus:outline-secondary">
+							<option>Plumbing Repair</option>
+							<option>Drain Cleaning</option>
+							<option>Water Heater</option>
+							<option>Heating</option>
+							<option>Cooling</option>
+							<option>Emergency Service</option>
+							<option>Something else</option>
+						</select>
+					</div>
+					<div class="sm:col-span-2 flex flex-col gap-1.5 mb-4.5">
+						<label for="message" class="text-sm font-bold">Tell us what's going on</label>
+						<textarea id="message" name="message" rows="4" required class="font-body text-[0.96rem] px-3.5 py-3 rounded-lg border border-border bg-white focus:outline-2 focus:outline-secondary"></textarea>
+					</div>
+					<div class="sm:col-span-2">
+						<button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-primary-dark transition">
+							Send Message
+						</button>
+						<p class="text-sm text-ink-soft mt-2.5">
+							For active emergencies (flooding, gas smell, no heat in freezing temps), please call us directly instead of using this form.
+						</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	const form = document.getElementById("contact-form") as HTMLFormElement | null;
+	const success = document.getElementById("form-success");
+
+	form?.addEventListener("submit", (event) => {
+		event.preventDefault();
+		form.reset();
+		success?.classList.remove("hidden");
+		success?.scrollIntoView({ behavior: "smooth", block: "center" });
+	});
+</script>
